@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pully landing page - A realtime messaging infrastructure</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./stylesheets/reset.css" />
+    <link rel="stylesheet" href="./stylesheets/style.css" />
+    <link rel="stylesheet" href="./stylesheets/snackbar.css" />
+</head>
+
+<body>
+    <main>
+        <nav class="pully-nav">
+            <div class="logo">
+                <img src="./images/pully.png" width="30px" height="30px" />
+            </div>
+            <div class="links">
+                <ul>
+                    <li>
+                        <a href="">Case Study</a>
+                    </li>
+                    <li>
+                        <a href="https://temporal-stork-160.notion.site/Pully-Documentation-f92390662f9c41e0ae0c2308d3d190b4"
+                            target="_blank">Docs</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Pully-Infra" target="_blank">Github</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <section class="pully-header">
+            <div class="tags">
+                <span>#realtime <img src="./images/time.png" width="18px" height="18px" /></span>
+                <span>#messaging <img src="./images/message.png" width="18px" height="18px" /></span>
+                <span>#notifications <img src="./images/notification.png" width="16px" height="16px" /></span>
+            </div>
+            <p class="main-text">Realtime messaging infrastructure.</p>
+            <p class="sub-text">Use Pully to manage in app messaging or notifications in realtime <br /> or deploy the
+                infrastructure to your own server for your custom needs</p>
+            <div class="get-started">
+                <p>Get Started</p>
+                <div class="code-block">
+                    <div>
+                        <span>
+                            <span class="token">yarn</span>
+                            <span class="token">install</span>
+                            pully-client
+                        </span>
+                        <img src="./images/copy.svg" onclick="copyToClipboard('yarn install pully-client');" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="pully-use">
+            <div class="pully-use-block-main">
+                <p class="main-block-text">Pully is perfect for building:</p>
+                <div class="pully-use-block">
+                    <div class="use-case">
+                        <img src="./images/chat.svg" />
+                        <p>Chat Applications</p>
+                    </div>
+                    <div class="use-case">
+                        <img src="./images/realtime.svg" />
+                        <p>Real-Time Analytics</p>
+                    </div>
+                    <div class="use-case">
+                        <img src="./images/notification.svg" />
+                        <p>Live Notifications</p>
+                    </div>
+                </div>
+            </div>
+            <p class="many-more">and many more...</p>
+        </section>
+
+    </main>
+    <footer class="container">
+        © 2023 Pully Infra | All rights reserved
+    </footer>
+
+    <div id="snackbar">Text copied to clipboard</div>
+
+    <script src="./javascript/script.js"></script>
+</body>
+
+</html>

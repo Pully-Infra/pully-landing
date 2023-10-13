@@ -1,0 +1,197 @@
+:root {
+  --pully-primary: #334252;
+
+  --white: #ffffff;
+  --gray-50: rgb(249, 250, 251);
+  --gray-100: rgb(243, 244, 246);
+  --gray-200: rgb(229, 231, 235);
+  --gray-300: rgb(209, 213, 219);
+  --gray-400: rgb(156, 163, 175);
+  --gray-500: rgb(107, 114, 128);
+  --gray-600: rgb(75, 85, 99);
+  --gray-700: rgb(55, 65, 81);
+  --gray-800: rgb(31, 41, 55);
+  --gray-900: rgb(17, 24, 39);
+}
+
+/* Global */
+html,
+body {
+  font-size: 16px !important;
+  box-sizing: border-box;
+  color: #fff;
+  background-color: rgb(13, 14, 18);
+  font-family: Open sans, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  /* height: 100%; */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+nav.pully-nav {
+  display: flex;
+  padding: 1rem 2rem;
+  justify-content: space-between;
+  /* border-bottom: 0.5px solid #ddd; */
+}
+
+nav .links ul {
+  display: flex;
+  align-items: center;
+}
+
+nav .links ul > li > a {
+  font-size: 0.85rem;
+  color: rgba(240, 241, 243, 0.67);
+}
+
+nav .links ul > li:not(:last-child) {
+  padding-right: 2rem;
+}
+
+section.pully-header {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+section.pully-header .tags {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+section.pully-header .tags span {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  border: 0.5px solid #2b303b;
+  border-radius: 16px;
+  padding: 0.4rem 0.8rem;
+}
+
+section.pully-header .main-text {
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+section.pully-header .sub-text {
+  color: rgba(240, 241, 243, 0.67);
+  line-height: 1.5rem;
+}
+
+section.pully-header .code-block {
+  text-align: center;
+}
+
+section.pully-header .code-block {
+  display: inline-block;
+  padding: 0.8rem 0.7rem;
+  background-color: #172535;
+  border: 0.1px solid rgb(31, 38, 46);
+  border-radius: 5px;
+}
+
+section.pully-header .code-block div {
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+section.pully-header .code-block img {
+  cursor: pointer;
+}
+
+section.pully-header .code-block .token {
+  color: #e6db74;
+}
+
+section.pully-header .get-started {
+  margin-top: 2.5rem;
+}
+
+section.pully-header .get-started p {
+  margin-bottom: 0.7rem;
+}
+
+section.pully-use {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+section.pully-use .many-more {
+  margin-top: 1rem;
+}
+
+section.pully-use .pully-use-block {
+  padding: 1rem 2rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+section.pully-use .pully-use-block-main {
+  max-width: 50rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid rgba(110, 115, 247, 0.5);
+}
+
+section.pully-use .pully-use-block-main .main-block-text {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+section.pully-use .pully-use-block .use-case {
+  padding: 2rem;
+  border-radius: 5px;
+  text-align: left;
+  background-color: rgba(110, 115, 247, 0.1);
+}
+
+section.pully-use .pully-use-block .use-case p {
+  font-size: 1.1rem;
+}
+
+section.pully-use .pully-use-block .use-case img {
+  margin-bottom: 1rem;
+}
+
+footer {
+  flex-shrink: 0;
+  padding-bottom: 2rem;
+}
