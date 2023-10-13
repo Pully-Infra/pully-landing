@@ -160,9 +160,23 @@ section.pully-use .pully-use-block {
   grid-gap: 15px;
 }
 
+@media screen and (max-width: 768px) {
+  section.pully-use .pully-use-block {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .notif {
+    display: none !important;
+  }
+
+  section.pully-use .pully-use-block {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
 section.pully-use .pully-use-block-main {
-  max-width: 50rem;
-  margin: 0 auto;
   border-radius: 5px;
   border: 1px solid rgba(110, 115, 247, 0.5);
 }
@@ -174,6 +188,7 @@ section.pully-use .pully-use-block-main .main-block-text {
   margin-left: 2rem;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
+  line-height: 2rem;
 }
 
 section.pully-use .pully-use-block .use-case {
@@ -193,5 +208,6 @@ section.pully-use .pully-use-block .use-case img {
 
 footer {
   flex-shrink: 0;
+  padding-top: 4rem;
   padding-bottom: 2rem;
 }
