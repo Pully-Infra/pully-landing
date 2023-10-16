@@ -206,8 +206,32 @@ section.pully-use .pully-use-block .use-case img {
   margin-bottom: 1rem;
 }
 
+section.pully-case-study {
+  margin-top: 5rem;
+}
+
+section.pully-case-study h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+section.pully-case-study div {
+  margin-top: 4rem;
+}
+
+section.pully-case-study h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+section.pully-case-study p {
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+
 footer {
   flex-shrink: 0;
-  padding-top: 4rem;
+  padding-top: 6rem;
   padding-bottom: 2rem;
 }
