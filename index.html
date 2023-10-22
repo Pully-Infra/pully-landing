@@ -16,23 +16,25 @@
 
 <body>
     <main>
-        <nav class="pully-nav">
-            <div class="logo">
-                <img src="./images/pully.png" width="30px" height="30px" />
-            </div>
-            <div class="links">
-                <ul>
-                    <li>
-                        <a href="case-study.html">Case Study</a>
-                    </li>
-                    <li>
-                        <a href="https://temporal-stork-160.notion.site/Pully-Documentation-f92390662f9c41e0ae0c2308d3d190b4"
-                            target="_blank">Docs</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Pully-Infra" target="_blank">Github</a>
-                    </li>
-                </ul>
+        <nav>
+            <div class="pully-nav">
+                <div class="logo">
+                    <img src="./images/pully.png" width="30px" height="30px" />
+                </div>
+                <div class="links">
+                    <ul>
+                        <li>
+                            <a href="#case-main">Case Study</a>
+                        </li>
+                        <li>
+                            <a href="https://temporal-stork-160.notion.site/Pully-Documentation-f92390662f9c41e0ae0c2308d3d190b4"
+                                target="_blank">Docs</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Pully-Infra" target="_blank">Github</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
         <section class="pully-header">
@@ -42,10 +44,10 @@
                 <span class="notif">#notifications <img src="./images/notification.png" width="16px"
                         height="16px" /></span>
             </div>
-            <p class="main-text">Realtime messaging infrastructure.</p>
+            <p class="main-text">Realtime <span style="color: #009999;">messaging</span> infrastructure.</p>
             <p class="sub-text">Use Pully to manage in app messaging or notifications in realtime <br /> or deploy the
                 infrastructure to your own server for your custom needs</p>
-            <div class="get-started">
+            <!-- <div class="get-started">
                 <p>Get started or go to the <a
                         href="https://temporal-stork-160.notion.site/Pully-Documentation-f92390662f9c41e0ae0c2308d3d190b4"
                         target="_blank" style="color: #6699cc">docs</a></p>
@@ -59,77 +61,86 @@
                         <img src="./images/copy.svg" onclick="copyToClipboard('yarn install pully-client');" />
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
-        <section class="pully-use">
-            <div class="pully-use-block-main container">
-                <p class="main-block-text">Pully is perfect for building:</p>
-                <div class="pully-use-block">
-                    <div class="use-case">
-                        <img src="./images/chat.svg" />
-                        <p>Chat Applications</p>
-                    </div>
-                    <div class="use-case">
-                        <img src="./images/realtime.svg" />
-                        <p>Real-Time Analytics</p>
-                    </div>
-                    <div class="use-case">
-                        <img src="./images/notification.svg" />
-                        <p>Live Notifications</p>
-                    </div>
+        <section class="header-img container">
+            <img src="./images/header.webp" width="100%" height="350rem" />
+        </section>
+        <section class="case-study">
+            <aside class="case-aside">
+                <ul>
+                    <li data-id="case-1">
+                        <span class="dot"></span>
+                        <a href="#case-1">About Pully</a>
+                    </li>
+                    <li data-id="case-2">
+                        <span class="dot"></span>
+                        <a href="#case-2">The motivation</a>
+                    </li>
+                    <li data-id="case-3">
+                        <span class="dot"></span>
+                        <a href="#case-3">How is realtime implemented</a>
+                    </li>
+                    <li data-id="case-3" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-3-1">Data Transfer Pattern: HTTP Requests</a>
+                    </li>
+                </ul>
+            </aside>
+            <div id="case-main" class="case-main container-fluid">
+                <h3>Case Study</h3>
+                <div id="case-1">
+                    <h4>1. About Pully</h4>
+                    <p>Pully is a realtime messaging infrastructure. You can either make use of the open source version
+                        that has
+                        been built to manage realtime features in your application or deploy the entire infrastructure
+                        to your own AWS account.
+                    </p>
+                    <!-- <img src="./images/pully-infra.jpg" width="100%" /> -->
+                    <!-- <span
+                        style="display: inline-block; font-size: .7rem;margin-top: .5rem; margin-bottom: 2rem;">Diagram
+                        of
+                        pully
+                        infrastructure</span> -->
+                    <p>Pully is comprised of four major parts: The <a href="https://github.com/Pully-Infra/pully-server"
+                            target="_blank" class="inline-link">pully
+                            server</a>
+                        which serves as the entry point to the infrastructure and handles socket io connections, the
+                        <a href="https://github.com/Pully-Infra/pully-client" target="_blank" class="inline-link">pully
+                            client</a> library which is
+                        installable through npm
+                        and
+                        gives you the ability to use pully in your client side apps, pully
+                        functions which act as middlewares to receive messages and give users the
+                        ability
+                        to
+                        act on them before they are published and lastly the <a
+                            href="https://github.com/Pully-Infra/pully-cli" target="_blank" class="inline-link">pully
+                            cli</a> which manages deploying the infrastructure and provides commands to
+                        manage
+                        pully
+                        functions.
+                    </p>
                 </div>
-            </div>
-            <p class="many-more">and many more...</p>
-        </section>
-        <hr style="margin-top: 6rem; border: 1px solid #393e47; height: 1px;" />
-        <section class="pully-case-study container">
-            <h3>Case Study</h3>
-            <div>
-                <h4>1. About Pully</h4>
-                <p>Pully is a realtime messaging infrastructure. You can either make use of the open source that has
-                    been
-                    built to manege realtime features
-                    in your application or deploy the entire infrastructure to your own AWS account.
-                </p>
-                <img src="./images/pully-infra.jpg" width="100%" />
-                <span style="display: inline-block; font-size: .7rem;margin-top: .5rem; margin-bottom: 2rem;">Diagram of
-                    pully
-                    infrastructure</span>
-                <p>Pully is comprised of four major parts: The <span style="color: #6699cc">pully server</span> which
-                    serves as the entry point to the
-                    infrastructure
-                    and handles socket io connections, the <span style="color: #6699cc">pully client</span> library
-                    which is installable through npm and
-                    gives
-                    you the ability
-                    to use pully in your client side apps, <span style="color: #6699cc">pully functions</span> which act
-                    as middlewares to receive messages
-                    and
-                    give users the
-                    ability to act on them before they are published and lastly the <span style="color: #6699cc">pully
-                        cli</span> which manages deploying
-                    the
-                    infrastructure and
-                    provides commands to manage pully functions.
-                </p>
-            </div>
-            <div>
-                <h4>2. The motivation</h4>
-                <p>Real-time applications play a crucial role in modern digital experiences, offering immediate and
-                    synchronized interactions between users and systems. It is used in applications where realtime
-                    updates are essential.
-                </p>
-                <p>Some examples include messaging and chat apps, collaborative tools like google workspace, stock and
-                    trading platforms amongst others.
-                </p>
-            </div>
-            <div>
-                <h4>3. How is realtime implemented?</h4>
-                <p>There are several methods of implementing communication between client and server side. This section
-                    explores some of these approaches.
-                </p>
-                <h4>3.1 Data Transfer Pattern: HTTP Requests</h4>
-                <!-- <img src="./images/http.png" width="100%" /> -->
+                <div id="case-2">
+                    <h4>2. The motivation</h4>
+                    <p>Real-time applications play a crucial role in modern digital experiences, offering immediate and
+                        synchronized interactions between users and systems. It is used in applications where realtime
+                        updates are essential.
+                    </p>
+                    <p>Some examples include messaging and chat apps, collaborative tools like google workspace, stock
+                        and trading platforms amongst others.
+                    </p>
+                </div>
+                <div id="case-3">
+                    <h4>3. How is realtime implemented</h4>
+                    <p>There are several methods of implementing communication between client and server side. This
+                        section explores some of these approaches.
+                    </p>
+                </div>
+                <div id="case-3-1">
+                    <h4 class="sub">3.1 Data Transfer Pattern: HTTP Requests</h4>
+                </div>
             </div>
         </section>
 
