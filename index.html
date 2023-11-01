@@ -95,7 +95,39 @@
                     </li>
                     <li data-id="case-5">
                         <span class="dot"></span>
-                        <a href="#case-5">Pully Server</a>
+                        <a href="#case-5">How does Pully Work?</a>
+                    </li>
+                    <li data-id="case-5" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-5-1">Installing the pully client library</a>
+                    </li>
+                    <li data-id="case-5" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-5-2">Pully Functions</a>
+                    </li>
+                    <li data-id="case-5" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-5-3">Relationships.json file</a>
+                    </li>
+                    <li data-id="case-6">
+                        <span class="dot"></span>
+                        <a href="#case-6">Pully Server</a>
+                    </li>
+                    <li data-id="case-6" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-6-1">Server Description</a>
+                    </li>
+                    <li data-id="case-6" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-6-2">Major Dependencies</a>
+                    </li>
+                    <li data-id="case-6" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-6-3">How is Pully Deployed?</a>
+                    </li>
+                    <li data-id="case-6" class="sub-li">
+                        <span class="dot"></span>
+                        <a href="#case-6-4">How is Auto Scaling handled?</a>
                     </li>
                 </ul>
             </aside>
@@ -108,17 +140,11 @@
                         been built to manage realtime features in your application or deploy the entire infrastructure
                         to your own AWS account.
                     </p>
-                    <!-- <img src="./images/pully-infra.jpg" width="100%" /> -->
-                    <!-- <span
-                        style="display: inline-block; font-size: .7rem;margin-top: .5rem; margin-bottom: 2rem;">Diagram
-                        of
-                        pully
-                        infrastructure</span> -->
                     <p>Pully is comprised of four major parts: The <a href="https://github.com/Pully-Infra/pully-server"
-                            target="_blank" class="inline-link">pully
+                            target="_blank">pully
                             server</a>
                         which serves as the entry point to the infrastructure and handles socket io connections, the
-                        <a href="https://github.com/Pully-Infra/pully-client" target="_blank" class="inline-link">pully
+                        <a href="https://github.com/Pully-Infra/pully-client" target="_blank">pully
                             client</a> library which is
                         installable through npm
                         and
@@ -127,7 +153,7 @@
                         ability
                         to
                         act on them before they are published and lastly the <a
-                            href="https://github.com/Pully-Infra/pully-cli" target="_blank" class="inline-link">pully
+                            href="https://github.com/Pully-Infra/pully-cli" target="_blank">pully
                             cli</a> which manages deploying the infrastructure and provides commands to
                         manage
                         pully
@@ -175,10 +201,136 @@
                     <h4 class="sub">4. Pully Architecture Diagram</h4>
                     <img src="./images/header.webp" width="100%" height="350rem" style="margin-top: 1rem;" />
                 </div>
-                <div id="case-5">
-                    <h4 class="sub">5. Pully Server</h4>
-                </div>
 
+                <div id="case-5">
+                    <h4 class="sub">5. How does Pully work?</h4>
+                    <p>This session explains everything that happens from client to server side communication.</p>
+                </div>
+                <div id="case-5-1">
+                    <h4 class="sub">5.1. Installing the pully client library</h4>
+                    <p>The Pully client handles client side communication to the server. You can install the pully
+                        client library by running <span class="highlight">npm install
+                            pully-client</span> or by
+                        downloading the script from the <a href="https://d2zbaqxz7kg7nk.cloudfront.net/"
+                            target="_blank">CDN</a></p>
+                    <p>The pully client exposes methods for subscribing and unsubscribing to/from a channel as well as
+                        publishing and listening for messages.</p>
+                    <img src="images/pully-client.png" alt="Example usage of pully client" width="100%"
+                        style="margin-bottom: .5rem" />
+                    <sub style="font-size: .85rem;">Example usage of pully client library</sub>
+                </div>
+                <div id="case-5-2">
+                    <h4 class="sub">5.2. Pully Functions</h4>
+                    <p>Pully functions act as middlewares between the point of publishing and subscription. They enable
+                        the in-transit message processing. Whenever a
+                        message is sent to a channel, it passes through
+                        the middleware functions based on the relationship between functions and channels in the
+                        relationships.json file.</p>
+                    <p>Pully function code is saved in AWS S3 and deployed to AWS Lambda. The reason for this is because
+                        we needed a way to
+                        quickly update the function without restarting the server and the only way to do this was to
+                        have the middleware functions as a seperate service.</p>
+                    <p>Whenever a new function is created by issuing the command <span class="highlight">pully function
+                            add [function-name]</span>. A new folder would be created in your projects base
+                        directory with an index.js file inside which is where you would act on received messages.
+                    </p>
+                    <img src="images/pully-function-add.png" alt="Example usage of pully function add command"
+                        width="100%" style="margin-bottom: .5rem" />
+                    <sub style="font-size: .85rem;">In this example, the received message is
+                        uppercased.</sub>
+                    <p style="margin-top: 1.5rem;">To view the status of all pully functions, you can run the command
+                        <span class="highlight">pully function status</span>. This would print the status of all
+                        functions in the termminal in a tabular format. A function can either be in <span
+                            class="highlight">Create</span>, <span class="highlight">Update</span> or <span
+                            class="highlight">No
+                            Change</span> state.
+                    </p>
+                    <img src="images/pully-function-status.png" alt="Example usage of pully function status command"
+                        width="100%" style="margin-bottom: .5rem" />
+                    <sub style="font-size: .85rem;">Example usage of pully function status command.</sub>
+                    <p style="margin-top: 1.5rem;">To delete a function, you just need to run the <span
+                            class="highlight">pully function delete [function-name]</span>. This would delete the
+                        locally, from S3 and Lambda.</p>
+                </div>
+                <div id="case-5-3">
+                    <h4 class="sub">5.3. Relationships.json file</h4>
+                    <p>In order to know which functions need to be invoked when messages are sent to specific channels,
+                        we needed a way to map the relationship between functions and channels. We also had to store the
+                        relationship somewhere. The first thought was to store the relationship in a variable on the
+                        server. The problem with this approach is that each time the server reloads, the information
+                        would be lost.
+                        To combat this we opted for a json file which would be loaded on the server and also saved to s3
+                        so that in the case of a server reload, the data isn't lost.</p>
+                    <p> We had to think of a way for the user to freely update this relationship between functions and
+                        channels. The first way was
+                        to create a cli command where the user can directly issue commands to add channels and functions
+                        to the <span class="highlight">relationships.json</span> file. This would have introduced
+                        unnecessary complexities given that
+                        more cli commands would have to be written plus finding a way to update the contents in the
+                        json. The other problem is that the user would not have been able to make multiple changes
+                        conviniently. The best way to sync changes was to allow a <span
+                            class="highlight">relationships.json</span> file live on the client side. The user can make
+                        updates as required and then deploy the changes after. The cli command would just communicate
+                        with a post endpoint which receives the updated json content, validates that it is in the right
+                        format and updates the data on the server
+                        plus in s3.</p>
+                    <img src="images/pully-relationships.png" alt="Relationships file" width="100%"
+                        style="margin-bottom: .5rem" />
+                    <sub style="font-size: .85rem;">Example of a relationships.json file.</sub>
+                </div>
+                <div id="case-6">
+                    <h4 class="sub">6. Pully Server</h4>
+                </div>
+                <div id="case-6-1">
+                    <h4 class="sub">6.1. Server Description</h4>
+                    <p>The Pully Server which is just a simple Node.JS server makes use of socket.io to manage
+                        real-time, bidirectional, event-based
+                        communication between web clients (like browsers) and servers.</p>
+                </div>
+                <div id="case-6-2">
+                    <h4 class="sub">6.2. Major Dependencies</h4>
+                    <ul>
+                        <li><span class="highlight">@aws-sdk</span>: Used for communicating with AWS resources.</li>
+                        <li><span class="highlight">redis</span>: Used to publish the updated relationships file to all
+                            subscribers in the case of auto
+                            scaling.</li>
+                        <li>
+                            <span class="highlight">socket.io-redis</span>: In a distributed system with multiple
+                            Node.js processes or servers, each
+                            process maintains its own list of connected clients. This means that broadcasting events
+                            using
+                            Socket.IO's built-in mechanism would only reach clients connected to the same server. This
+                            library
+                            allows all instances or servers to communicate with each other through Redis.
+                        </li>
+                    </ul>
+                </div>
+                <div id="case-6-3">
+                    <h4 class="sub">6.3. How is Pully Deployed?</h4>
+                    <p>The entire application is containerized using Docker. If you want to update the <span
+                            class="highlight">Dockerfile</span>, you
+                        can clone or fork this repository and run <span class="highlight">docker build -t
+                            [your-tag]</span>, then push to docker hub. You
+                        then need to change the docker image in the <span class="highlight">deploy.js</span> file in the
+                        deployment repository
+                        to the new image name.
+                    </p>
+                    <p>
+                        Deployment is done using AWS Elastic Container Service. A new ECS Cluster is setup and the
+                        dockerized application is added as a task to a fargate service launch type.
+                    </p>
+                </div>
+                <div id="case-6-4">
+                    <h4 class="sub">6.4. How is Auto Scaling handled?</h4>
+                    <p>
+                        Auto Scaling policy is set up on the ECS Service to auto scale tasks based on memory and CPU
+                        usage. The policy is currently setup to allow a maximum of 4 tasks running at a time.
+                    </p>
+                    <p>
+                        AWS Elastic load balancer is also employed to distribute traffic across the several tasks
+                        running on ECS.
+                    </p>
+                </div>
                 <div>
                     <br />
                     <br />

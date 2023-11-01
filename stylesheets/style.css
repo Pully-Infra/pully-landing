@@ -247,6 +247,25 @@ section.case-study {
   padding-bottom: 10rem;
 }
 
+.case-main ul {
+  list-style-type: disc;
+  list-style: inside;
+}
+
+.case-main ul li {
+  margin-bottom: 1rem;
+  line-height: 2rem;
+}
+
+.case-main .highlight {
+  background-color: #d1e7e7;
+  padding: 0rem 0.2rem;
+}
+
+.case-main a {
+  color: #4d74c8;
+}
+
 .case-main div {
   padding-top: 1.5rem;
 }
@@ -330,6 +349,22 @@ section.case-study {
   margin-bottom: 2rem;
 }
 */
+
+@media (max-width: 800px) {
+  .case-aside {
+    margin-left: calc(var(--aside-width) * -1) !important;
+  }
+
+  .case-main {
+    margin-left: 0rem;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1400px) {
+  .case-aside[style="margin-left: 0rem;"] ~ .case-main {
+    margin-left: 25rem;
+  }
+}
 
 footer {
   flex-shrink: 0;
