@@ -37,7 +37,6 @@ main {
   flex: 1;
 }
 
-nav,
 .pully-header,
 .header-img,
 .case-study {
@@ -315,7 +314,7 @@ section.case-study {
 }
 
 .case-aside {
-  top: 6.04rem;
+  top: 4.05rem;
   left: 0;
   height: 100vh;
   padding: 2rem 2.4rem;
